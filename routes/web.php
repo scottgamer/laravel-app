@@ -12,5 +12,28 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+  return view('welcome');
 });
+
+//resource maps requests to CRUD functions
+Route::resource('posts', 'PostsController');
+
+// Route::get('/posts', 'PostsController@index');
+
+Route::get('/about', function () {
+  return "About Page";
+});
+
+Route::get('/contact', function () {
+  return "Contact Page";
+});
+
+Route::get('/post/{id}/{name}', function ($id, $name) {
+  return "This is post number " . $id . " and belongs to " . $name;
+});
+
+//naming routes
+Route::get('/admin/posts/example', array('as' => 'admin.home', function () {
+  $url = route('admin.home');
+  return "This is the route using naming routes: " . $url;
+}));
