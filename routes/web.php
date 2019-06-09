@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 //resource maps requests to CRUD functions
-Route::resource('posts', 'PostsController');
+// Route::resource('posts', 'PostsController');
 
 // Route::get('/posts', 'PostsController@index');
 
@@ -24,13 +24,13 @@ Route::get('/about', function () {
   return "About Page";
 });
 
-Route::get('/contact', function () {
-  return "Contact Page";
-});
+Route::get('/contact', 'PostsController@contact');
 
-Route::get('/post/{id}/{name}', function ($id, $name) {
-  return "This is post number " . $id . " and belongs to " . $name;
-});
+Route::get('/post/{id}/{name}', 'PostsController@showPost');
+
+// Route::get('/post/{id}/{name}', function ($id, $name) {
+//   return "This is post number " . $id . " and belongs to " . $name;
+// });
 
 //naming routes
 Route::get('/admin/posts/example', array('as' => 'admin.home', function () {
