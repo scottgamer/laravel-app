@@ -1,27 +1,26 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+@extends('layouts.app')
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+@section('content')
 
-  <title>Laravel</title>
+<h1>Contact Page</h1>
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+@if($people && count($people))
+<ul>
+  @foreach($people as $person)
+  <li>{{$person}}</li>
 
-  <!-- Styles -->
-  <style>
 
-  </style>
-</head>
+  @endforeach
+</ul>
+@else
+<h3>No people registered!</h3>
+@endif
 
-<body>
-  <div class="container">
+@endsection
 
-  <h1>Contact Page</h1>
+@section('footer')
+<script>
+  alert('Hello visitor!')
+</script>
 
-  </div>
-</body>
-
-</html>
+@endsection
